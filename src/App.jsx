@@ -1,35 +1,94 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import logo from "./assets/logo-bored.png";
+import bean from "./assets/logo.png";
+import separate from "./assets/separate.png";
+import { getActivity, findByType } from "./api/services";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [type, setType] = useState();
+  const [activity, setActivity] = useState();
+
+  const handleGenerateActivity = () => {
+    if (type) {
+      findByType(type).then((data) => setActivity(data.activity));
+    } else {
+      getActivity().then((data) => {
+        setActivity(data.activity), setType(data.type);
+      });
+    }
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header>
+        <img src={logo} alt="" />
+        BOORED
+      </header>
+
+      <main>
+        <section id="generate">
+          <nav>
+            <button
+              className={type === "education" ? "active" : ""}
+              onClick={() => setType("education")}
+            >
+              Educació
+            </button>
+            <button
+              className={type === "recreational" ? "active" : ""}
+              onClick={() => setType("recreational")}
+            >
+              Recreatiu
+            </button>
+            <button
+              className={type === "social" ? "active" : ""}
+              onClick={() => setType("social")}
+            >
+              Social
+            </button>
+            <button
+              className={type === "charity" ? "active" : ""}
+              onClick={() => setType("charity")}
+            >
+              Caritat
+            </button>
+            <button
+              className={type === "cooking" ? "active" : ""}
+              onClick={() => setType("cooking")}
+            >
+              Cuinar
+            </button>
+            <button
+              className={type === "relaxation" ? "active" : ""}
+              onClick={() => setType("relaxation")}
+            >
+              Relaxació
+            </button>
+            <button
+              className={type === "busywork" ? "active" : ""}
+              onClick={() => setType("busywork")}
+            >
+              Busywork
+            </button>
+          </nav>
+          <img src={bean} alt="" />
+          <div>
+            <h4>
+              TROBA ALGUNA <br />
+              COSA A FER
+            </h4>
+            <button onClick={() => handleGenerateActivity()}>Generar</button>
+          </div>
+        </section>
+        <section id="activity">
+          <img src={separate} alt="" />
+          <h4>Activitat:</h4>
+          <h6>{activity}</h6>
+        </section>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
