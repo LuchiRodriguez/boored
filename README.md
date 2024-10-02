@@ -1,8 +1,15 @@
-# React + Vite
+# BOORED
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Descripción:**
+Este proyecto es una aplicación web que permite a los usuarios que se encuentran aburridos, idear distintas actividades y filtrarlas según sus tipos
 
-Currently, two official plugins are available:
+**Instalación:**
+1. Clona el repositorio: `git clone https://github.com/LuchiRodriguez/boored.git`
+2. Instala las dependencias: `npm install`
+3. Ejecuta el servidor de desarrollo: `npm start`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Uso:**
+Para utilizar la aplicación, simplemente visita https://luchirodriguez.github.io/boored/
+
+**Contribuciones:**
+¡Las contribuciones son bienvenidas! Por favor, abre un issue para reportar un bug o una sugerencia.
