@@ -13,9 +13,7 @@ function App() {
     if (type) {
       findByType(type).then((data) => setActivity(data.activity));
     } else {
-      getActivity().then((data) => {
-        setActivity(data.activity), setType(data.type);
-      });
+      getActivity().then((data) => setActivity(data.activity));
     }
   };
 

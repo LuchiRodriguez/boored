@@ -12,7 +12,6 @@ export const getActivity = async () => {
 export const findByType = async (type) => {
   try {
     const response = await i.get("/activity?type=" + type);
-    console.log("/activity?type=:" + type);
     console.log(response.data);
     return response.data;
   } catch (error) {
